@@ -1,4 +1,4 @@
-package 이지윤;
+package 강민혁;
 
 import java.io.*;
 import java.util.StringTokenizer;
