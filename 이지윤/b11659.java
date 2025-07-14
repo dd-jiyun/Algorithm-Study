@@ -1,3 +1,5 @@
+package 이지윤;
+
 import java.io.*;
 import java.util.StringTokenizer;
 
