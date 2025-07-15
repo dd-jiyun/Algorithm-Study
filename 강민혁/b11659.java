@@ -1,39 +1,43 @@
 package 강민혁;
 
-import java.io.*;
-import java.util.StringTokenizer;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.Arrays;
 
-public class b11659 {
-    public static void main(String args[]) throws IOException {
+class b11659 {
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    public static void main(String[] args) throws IOException {
+        final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        String[] inputs = br.readLine().split(" ");
-        int N = Integer.parseInt(inputs[0]);
-        int M = Integer.parseInt(inputs[1]);
+        final int[] inputs = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt)
+            .toArray();
+        final int N = inputs[0];
+        final int M = inputs[1];
 
-        int[] arr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+        final int[] numbers = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt)
+            .toArray();
 
-        // 합배열 2 - 4 = sumArr[4] - sumArr[2-1]
-        int[] sumArr = new int[arr.length + 1];
+        final int[] sumArr = new int[N + 1];
         sumArr[0] = 0;
-        for(int i = 1; i <= arr.length; i++) {
-            sumArr[i] = sumArr[i-1] + arr[i-1];
+        for (int i = 1; i <= N; i++) {
+            sumArr[i] = numbers[i - 1] + sumArr[i - 1];
         }
 
-        for(int i = 0; i < M; i++) {
-            String[] sRanges = br.readLine().split(" ");
-            int start = Integer.parseInt(sRanges[0]);
-            int end = Integer.parseInt(sRanges[1]);
+        for (int i = 0; i < M; i++) {
+            final int[] idxes = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt)
+                .toArray();
+            final int startIdx = idxes[0];
+            final int endIdx = idxes[1];
 
-            int result = sumArr[end] - sumArr[start - 1];
-
+            final int result = sumArr[endIdx] - sumArr[startIdx - 1];
             bw.write(result + "\n");
         }
 
         bw.flush();
         bw.close();
-        br.close();
     }
 }
