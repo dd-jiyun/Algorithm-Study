@@ -28,17 +28,22 @@ public class b1253 {
             int j = n - 1;
 
             while (i < j) {
-                if (a[i] + a[j] == target) {
-                    if (i != k && j != k) {
-                        count++;
-                        break;
-                    }
-                    if (i == k) {
-                        i++;
-                    } else if (j == k) {
-                        j--;
-                    }
-                } else if (a[i] + a[j] < target) {
+                if (i == k) {
+                    i++;
+                    continue;
+                }
+                if (j == k) {
+                    j--;
+                    continue;
+                }
+
+                int sum = a[i] + a[j];
+                if (sum == target) {
+                    count++;
+                    break;
+                }
+
+                if (sum < target) {
                     i++;
                 } else {
                     j--;
