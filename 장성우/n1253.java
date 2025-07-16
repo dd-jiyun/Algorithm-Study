@@ -9,52 +9,45 @@ public class n1253 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int N = Integer.parseInt(br.readLine());
-
         int[] arr = new int[N];
-        StringTokenizer st = new StringTokenizer(br.readLine());
 
+        StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
         Arrays.sort(arr);
 
-        int ans  = 0;
+        int ans = 0;
 
-        for(int i = 0 ; i < N ; i++){
+        for (int i = 0; i < N; i++) {
             int left = 0;
             int right = N - 1;
 
-            while(true){
-                if(i== left){
+            while (left < right) {
+                if (i == left) {
                     left++;
+                    continue;
                 }
-                else if(i== right){
+                if (i == right) {
                     right--;
+                    continue;
                 }
 
-                if(left == right){
-                    break;
-                }
+                int sum = arr[left] + arr[right];
 
-                if(arr[left] + arr[right] > arr[i]){
-                    right--;
-                }
-
-                else if(arr[left] + arr[right] < arr[i]){
-                    left++;
-                }
-
-                else{
+                if (sum == arr[i]) {
                     ans++;
                     break;
+                } else if (sum < arr[i]) {
+                    left++;
+                } else {
+                    right--;
                 }
             }
         }
 
         System.out.println(ans);
         br.close();
-
-
     }
 }
