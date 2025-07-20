@@ -21,7 +21,6 @@ public class p17298 {
 
         // 스택 쓰기
         Stack<Integer> stack = new Stack<>();
-        stack.push(0);
         for (int i = 0; i < counts; i++) {
             while (!stack.isEmpty() && numbers[stack.peek()] < numbers[i]) {
                 result[stack.pop()] = numbers[i];
