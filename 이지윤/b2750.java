@@ -3,7 +3,8 @@ package 이지윤;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class b2750 {
     public static void main(String[] args) throws IOException {
@@ -11,14 +12,12 @@ public class b2750 {
 
         int n = Integer.parseInt(br.readLine());
 
-        int[] arr = new int[n];
+        Set<Integer> set = new TreeSet<>();
         for(int i = 0; i < n; i++) {
-            arr[i] = Integer.parseInt(br.readLine());
+            set.add(Integer.parseInt(br.readLine()));
         }
 
-        Arrays.sort(arr);
-
-        for (int j : arr) {
+        for (int j : set) {
             System.out.println(j);
         }
     }
