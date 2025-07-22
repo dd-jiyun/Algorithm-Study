@@ -9,7 +9,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-public class b11003 {
+public class B11003 {
     static int n, l;
 
     public static void main(String[] args) throws IOException {
