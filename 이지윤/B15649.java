@@ -22,6 +22,7 @@ public class B15649 {
 
         backtracking(0);
         bw.flush();
+        bw.close();
     }
 
     private static void backtracking(int depth) throws IOException {
