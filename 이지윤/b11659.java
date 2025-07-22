@@ -3,7 +3,7 @@ package 이지윤;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class b11659 {
+public class B11659 {
     static int n, m;
 
     public static void main(String[] args) throws IOException {

@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class b2750 {
+public class B2750 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
