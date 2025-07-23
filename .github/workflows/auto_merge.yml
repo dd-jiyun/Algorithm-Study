@@ -1,0 +1,37 @@
+name: Auto Merge PR
+
+on:
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Merge all open PRs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          run: |
+               PR_NUMBERS=$(gh pr list --json number -q '.[].number')
+               
+               if [ -z "$PR_NUMBERS" ]; then
+                 echo "No open PRs found."
+               else
+                 for PR_NUMBER in $PR_NUMBERS; do
+                   echo "Attempting to merge PR #$PR_NUMBER"
+                   gh pr merge "$PR_NUMBER" --auto --merge
+                   if [ $? -eq 0 ]; then
+                     echo "Successfully merged PR #$PR_NUMBER"
+                   else
+                     echo "Failed to merge PR #$PR_NUMBER. It might have conflicts or failing checks."
+                   fi
+                  done
+               fi
