@@ -20,5 +20,7 @@ public class B2750 {
         for (int j : set) {
             System.out.println(j);
         }
+
+        br.close();
     }
 }
