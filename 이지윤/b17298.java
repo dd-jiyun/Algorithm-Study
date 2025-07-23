@@ -3,7 +3,7 @@ package 이지윤;
 import java.io.*;
 import java.util.*;
 
-public class b17298 {
+public class B17298 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());

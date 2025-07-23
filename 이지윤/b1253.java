@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class b1253 {
+public class B1253 {
     static int n;
     static int count;
 
