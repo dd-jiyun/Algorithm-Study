@@ -19,19 +19,19 @@ jobs:
       - name: Merge all open PRs
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          run: |
-               PR_NUMBERS=$(gh pr list --json number -q '.[].number')
-               
-               if [ -z "$PR_NUMBERS" ]; then
-                 echo "No open PRs found."
-               else
-                 for PR_NUMBER in $PR_NUMBERS; do
-                   echo "Attempting to merge PR #$PR_NUMBER"
-                   gh pr merge "$PR_NUMBER" --auto --merge
-                   if [ $? -eq 0 ]; then
-                     echo "Successfully merged PR #$PR_NUMBER"
-                   else
-                     echo "Failed to merge PR #$PR_NUMBER. It might have conflicts or failing checks."
-                   fi
-                  done
-               fi
+        run: |
+          PR_NUMBERS=$(gh pr list --json number -q '.[].number')
+          
+          if [ -z "$PR_NUMBERS" ]; then
+            echo "No open PRs found."
+          else
+            for PR_NUMBER in $PR_NUMBERS; do
+              echo "Attempting to merge PR #$PR_NUMBER"
+              gh pr merge "$PR_NUMBER" --auto --merge
+              if [ $? -eq 0 ]; then
+                echo "Successfully merged PR #$PR_NUMBER"
+              else
+                echo "Failed to merge PR #$PR_NUMBER. It might have conflicts or failing checks."
+              fi
+            done
+          fi
