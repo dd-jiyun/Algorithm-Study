@@ -20,5 +20,6 @@ public class B2164 {
         }
 
         System.out.println(queue.peek());
+        sc.close();
     }
 }

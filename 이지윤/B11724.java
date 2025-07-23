@@ -40,6 +40,7 @@ public class B11724 {
         }
 
         System.out.println(count);
+        br.close();
     }
 
     private static void dfs(int node) {
