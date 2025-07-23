@@ -12,8 +12,8 @@ public class b15649 {
     final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     final int[] inputs = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
-    final int N = inputs[0];
-    final int M = inputs[1];
+    final int N = inputs[0]; // 4
+    final int M = inputs[1]; // 2
 
     arr = new int[M];
     visited = new boolean[N];
@@ -29,7 +29,7 @@ public class b15649 {
       return;
     }
 
-    for (int i = 1; i <= N; i++) {
+    for (int i = 0; i < N; i++) {
       if (!visited[i]) {
         visited[i] = true;
         arr[depth] = i;
