@@ -18,6 +18,7 @@ public class B9663 {
 
         backtracking(0);
         System.out.println(count);
+        sc.close();
     }
 
     private static void backtracking(int row) {
