@@ -27,6 +27,6 @@ jobs:
           else
             for PR_NUMBER in $PR_NUMBERS; do
               echo "Attempting to merge PR #$PR_NUMBER"
-              gh pr merge "$PR_NUMBER" --auto --merge || echo "Failed to merge PR #$PR_NUMBER, but continuing..."
+              gh pr merge "$PR_NUMBER" --merge || echo "Failed to merge PR #$PR_NUMBER, but continuing..."
             done
           fi
