@@ -21,8 +21,8 @@ public class B1920 {
         int m = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
         for (int j = 0; j < m; j++) {
-            int key = Integer.parseInt(st.nextToken());
-            if (binarySearch(a, key)) {
+            int x = Integer.parseInt(st.nextToken());
+            if (binarySearch(a, x)) {
                 bw.write('1');
                 bw.newLine();
             } else {
