@@ -64,10 +64,10 @@ public class b1260 {
     visited[start] = true;
 
     while (!queue.isEmpty()) {
-      int current = queue.poll();
+      final Integer current = queue.poll();
       sb.append(current).append(" ");
 
-      for (int neighbor : graph[current]) {
+      for (int neighbor: graph[current]) {
         if (!visited[neighbor]) {
           visited[neighbor] = true;
           queue.offer(neighbor);
