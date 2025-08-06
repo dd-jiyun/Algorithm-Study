@@ -1,2 +1,6 @@
+# IntelliJ IDEA
+out/
+*.class
 .idea/
 *.iml
+out/
