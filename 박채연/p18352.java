@@ -22,6 +22,7 @@ public class p18352 {
             graph[i] = new ArrayList<>();
         }
 
+
         for (int i = 0; i < edgeCount; i++) {
             st = new StringTokenizer(br.readLine());
             int startNode = Integer.parseInt(st.nextToken());
