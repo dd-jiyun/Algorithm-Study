@@ -41,20 +41,19 @@ public class p1325 {
                 max = count;
                 result.clear();
                 result.add(i);
-                result.add(count);
             } else if (count == max) {
                 result.add(i);
-                result.add(count);
             }
         }
 
         // result 정렬후 출력하기
-
+        Collections.sort(result);
         StringBuilder sb = new StringBuilder();
         for (int i : result) {
             sb.append(i).append(" ");
         }
         System.out.print(sb);
+
     }
 
     private static void bfs(int start) {
