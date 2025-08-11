@@ -52,6 +52,7 @@ public class B1325 {
             }
         }
         System.out.println(sb.toString().trim());
+        br.close();
     }
 
     private static void bfs(int start) {
