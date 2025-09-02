@@ -1,20 +1,27 @@
 package 이지윤;
 
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class P42576 {
     static class Solution {
         public String solution(String[] participant, String[] completion) {
-            Arrays.sort(participant);
-            Arrays.sort(completion);
 
-            for (int i = 0; i < completion.length; i++) {
-                if (!participant[i].equals(completion[i])) {
-                    return participant[i];
+            Map<String, Integer> map = new HashMap<>();
+
+            for (String p : participant) {
+                map.put(p, map.getOrDefault(p, 0) + 1);
+            }
+            for (String c : completion) {
+                map.put(c, map.get(c) - 1);
+            }
+            for (String key : map.keySet()) {
+                if (0 < map.get(key)) {
+                    return key;
                 }
             }
 
-            return participant[participant.length - 1];
+            return "";
         }
     }
 
